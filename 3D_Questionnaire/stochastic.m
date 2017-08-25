@@ -1,4 +1,4 @@
-function [ X_stoch ] = stochastic( X )
+function [ X_stoch, vD ] = stochastic( X )
 % Converts a given matrix to a right stochastic matrix.
 % 
 % Input:

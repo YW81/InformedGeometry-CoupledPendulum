@@ -2,14 +2,14 @@ function [I, tree] = relabel(tree)
 
 w=[];
 for i=1:length(tree)
-     w(:,i)=tree{i}.clustering;
+    w(:,i)=tree{i}.clustering;
 end;
 
 for i=2:length(tree)-1
-     h=w(:,i);
-     [~,b]=sort(h);
-     w=w(b,:);
- end;
+    h=w(:,i);
+    [~,b]=sort(h);
+    w=w(b,:);
+end;
 I=w(:,1);
 
 for i=2:length(tree)-1
@@ -27,8 +27,10 @@ for i=1:length(tree)-1
     superfolder=[];
     for j=1:tree{i}.folder_count
         foldersize=[foldersize sum(w(:,i)==j)];
-        superfolder=[superfolder w(find(w(:,i)==j, 1 ),i+1)]; 
+        superfolder=[superfolder w(find(w(:,i)==j, 1 ),i+1)];
     end;
-    tree{i}.folder_sizes=foldersize;
-    tree{i}.super_folders=superfolder;
+    if foldersize > 0
+        tree{i}.folder_sizes=foldersize;
+        tree{i}.super_folders=superfolder;
+    end
 end;

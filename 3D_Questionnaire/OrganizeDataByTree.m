@@ -15,15 +15,16 @@ function [organized_data_row_col, row_order, col_order ] = OrganizeDataByTree(da
 organized_data_row = data(row_order,:); 
 organized_data_row_col = organized_data_row(:,col_order); 
 organized_data_col = data(:,col_order); 
+
+if nargout < 1
 figure, subplot(2,2,1),imagesc(data), colormap jet, axis on, 
 title(['Orig. Data']), colorbar
 subplot(2,2,2), imagesc(organized_data_row),colormap jet, axis on, 
 title(['Permutation By Row Tree']), colorbar;
 subplot(2,2,3), imagesc(organized_data_col),colormap jet, axis on, 
 title(['Permutation By Col Tree']), colorbar;
-
 subplot(2,2,4), imagesc(organized_data_row_col),colormap jet, axis on, 
 title(['Permutation By Row+Col Trees']), colorbar;
-
+end
 end
 

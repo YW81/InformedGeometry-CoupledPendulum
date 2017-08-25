@@ -1,4 +1,4 @@
-function [ aff_mat ] = CalcEmdAff( data, tree, params, varagin) %#ok<INUSD>
+function [ aff_mat ] = CalcEmdAff2D( data, tree, params, varagin) %#ok<INUSD>
 % Calculates the EMD between all pairs of points (columns), and converts it 
 % to an affinity.
 %

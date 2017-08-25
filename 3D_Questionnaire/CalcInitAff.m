@@ -39,15 +39,17 @@ if dimLen >= 2
         case 'cosine_similarity'
         inner_products     = slices.' * slices;
         [ij_norm, ji_norm] = meshgrid( diag(inner_products) );
-        aff_mat            = inner_products ./ sqrt(ij_norm .* ji_norm);
+            aff_mat            = inner_products ./ (sqrt(ij_norm .* ji_norm)+eps);
         aff_mat(aff_mat < params.thresh) = 0;
         case 'euc'
-        
-        euc_dist = squareform(pdist(slices.'));
-        [~, nn_dist] = knnsearch(slices.', slices.', 'k', params.knn);
-        sigma = params.eps * median(nn_dist(:));
-        aff_mat = exp(-euc_dist.^2/(2*sigma^2));
-        
+            
+            
+            euc_dist = squareform(pdist(slices.'));
+            nn_dist = sort(euc_dist.').';
+            params.knn = min(params.knn, size(nn_dist, 2));
+            sigma = params.eps * median(reshape(nn_dist(:, 1:params.knn), size(nn_dist,1)*params.knn,1));
+            aff_mat = exp(-euc_dist.^2/(2*sigma^2));
+            
         otherwise
             error('params.metric is not well define, please fix it');
             

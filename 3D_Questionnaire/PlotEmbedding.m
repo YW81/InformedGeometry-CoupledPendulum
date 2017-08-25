@@ -22,7 +22,8 @@ switch size(embedding, 2)
     otherwise
         scatter3(embedding(:,1), embedding(:,2), embedding(:,3), 30, true_perm, 'filled'); %'MarkerEdgeColor', 'k'
         xlabel('\psi_1'), ylabel('\psi_2'), zlabel('\psi_3'), hold on
-
+        colormap jet
+        axis equal
 end
 
 if nargin < 3,
