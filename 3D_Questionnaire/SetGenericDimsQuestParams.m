@@ -40,6 +40,8 @@ for dim_i = 1:dims
     params.emd{dim_i}.beta  = 1;
     params.emd{dim_i}.alpha = 0;
     params.emd{dim_i}.eps   = 1;
+    params.emd{dim_i}.doWeighted   = false;
+    %params.emd{dim_i}.weightsType =  'norm';
     
     if isTopDown
         % relevant only for TD trees:

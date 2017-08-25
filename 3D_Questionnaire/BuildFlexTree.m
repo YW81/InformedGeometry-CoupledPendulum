@@ -1,4 +1,4 @@
-function [ dfs_levels,eigvals ] = BuildFlexTree( affinity, params )
+function [ dfs_levels,vals, vecs ] = BuildFlexTree( affinity, params )
 % Creates a flexible tree on either the rows or the columns by calculating 
 % the diffusion on the given affinity.
 %

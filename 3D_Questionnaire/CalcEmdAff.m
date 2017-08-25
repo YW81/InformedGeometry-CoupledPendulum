@@ -7,6 +7,13 @@ data      = permute(data, dim_order);
 cTrees    = {cTrees{dim_order}};
 cParams   = {cParams{dim_order}};
 
+if isfield(cParams{dim},'doWeighted') && ...
+        cParams{dim}.doWeighted == true && ...
+        ismatrix(data)
+    [ aff_mat, emd_mat ] =  calcEmdAff2DRef(data, data, cTrees{1}, cParams{1});
+    return
+end
+
 vTreesLength = zeros(1, dim_length-1);
 for dim = 1 : (dim_length-1)
    vTreesLength(dim) = length(cTrees{dim});
