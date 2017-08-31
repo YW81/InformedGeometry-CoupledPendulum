@@ -8,7 +8,7 @@ nrows = size(data,1);
 folder_sizes = folder_sizes/nrows;
 
 if isfield(params,'doWeighted') && params.doWeighted == true
-    [differences_mat] = tree_difference_matrix(tree);
+    [differences_mat] = transformDifferencesMatrix(tree);
     diff_coefs = differences_mat * data;
     if strcmp(params.weightsType,'norm')
         weights = sqrt(sum(diff_coefs.^2,2)); 
