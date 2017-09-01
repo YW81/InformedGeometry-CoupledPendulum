@@ -9,3 +9,6 @@ The algorithms implemented here are presented in:
 * G. Mishne, R. Talmon, R. Meir, J. Schiller, U. Dubin and R. R. Coifman, "Hierarchical Coupled Geometry Analysis for Neuronal Structure and Activity Pattern Discovery," IEEE Journal of Selected Topics in Signal Processing, vol. 10, no. 7, pp. 1238-1253, Oct. 2016.
 
 * G. Mishne, R. Talmon, I. Cohen, R. R. Coifman and Y. Kluger, "Data-Driven Tree Transforms and Metrics," accepted to IEEE Transactions on Signal and Information Processing over Networks.
+
+
+A python implementation can be found at https://github.com/gmishne/pyquest
