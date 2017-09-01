@@ -14,7 +14,7 @@ params.n_iters           = 1;
 if ~isunix
     params.verbose           = VERBOSE_FIGURES_OUTPUT; % 2 - for printing
 else
-    params.verbose       = VERBOSE_PROPMT_OUTPUT; % 2 - for printing
+    params.verbose       = VERBOSE_FIGURES_OUTPUT; % 2 - for printing
 end
 params.data.to_normalize = false;
 
